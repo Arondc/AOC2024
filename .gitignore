@@ -1,3 +1,8 @@
+/build/*
+/.gradle/*
 /gradle/*
 /.idea/*
 /out/*
+
+## Exclude puzzle related inputs
+/src/main/resources/day*star*.txt
