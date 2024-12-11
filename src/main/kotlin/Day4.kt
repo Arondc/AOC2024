@@ -25,6 +25,7 @@ class Day4 {
 
     fun starTwo() {
         val result =
+            //Starting point is the middle of each X-MAS
             grid.getCellsWithValue('A')
                 .map { cell ->
                     grid.getNeighboursWithDirections(
@@ -33,11 +34,14 @@ class Day4 {
                     )
                 }.filter {
                     //Only keep those with 2xM and 2xS
-                        neighbours -> neighbours.count { (_,cell) -> cell.content == 'M' } == 2 &&
-                        neighbours.count { (_,cell) -> cell.content == 'S' } == 2
-                }.filter {
-                    neighbours -> neighbours[Direction.NORTH_EAST]!!.content != neighbours[Direction.SOUTH_WEST]!!.content
-                }.count()
+                        neighbours ->
+                    neighbours.count { (_, cell) -> cell.content == 'M' } == 2 &&
+                            neighbours.count { (_, cell) -> cell.content == 'S' } == 2
+                }.count {
+                    //If one pair is matching the other one is automatically also matching
+                        neighbours ->
+                    neighbours[Direction.NORTH_EAST]!!.content != neighbours[Direction.SOUTH_WEST]!!.content
+                }
         println(result)
 
     }
