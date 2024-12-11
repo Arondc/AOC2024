@@ -16,8 +16,8 @@ class Day4 {
                         expectedValue = 'M'
                     )
                 }
-                .mapNotNull { list -> searchInDirectionForNext('A', list)}
-                .mapNotNull { list -> searchInDirectionForNext('S', list)}
+                .mapNotNull { neighbours -> searchInDirectionForNext('A', neighbours)}
+                .mapNotNull { neighbours -> searchInDirectionForNext('S', neighbours)}
                 .flatMap { it.entries }
                 .count()
         println(result)
