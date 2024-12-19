@@ -41,7 +41,3 @@ class Day5 {
                 .map { it.first }
         }.toSet()
 }
-
-
-
-
